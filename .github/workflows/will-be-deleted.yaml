@@ -10,7 +10,7 @@ jobs:
         uses : rtCamp/action-slack-notify@v2
         env :
           SLACK_CHANNEL : frontegg-alpha-versions
-          # SLACK_COLOR : ${{ job.status }}
+          SLACK_COLOR : ${{ job.status }}
           # SLACK_ICON : https://avatars.githubusercontent.com/u/67857107?s=40&v=4
           SLACK_MESSAGE : 'trying to send message to frontegg-alpha-versions channel'
           SLACK_TITLE : 'should be sent there frontegg-alpha-versions'
