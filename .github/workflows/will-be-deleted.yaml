@@ -1,8 +1,8 @@
-name: Push Workflow
+name: will be deleted
 on: push
 jobs:
   test:
-    name: 'Install, Build and Test'
+    name: 'will be deleted'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
