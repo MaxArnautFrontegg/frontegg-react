@@ -19,5 +19,14 @@ jobs:
         with :
           node-version : "${{ steps.nvm.outputs.NVMRC }}"
       - run : cd packages/sanity-check && yarn run build && yarn run test
-
-
+      - name : Notify Slack on failure
+        if : failure()
+        uses : rtCamp/action-slack-notify@v2
+        env :
+          SLACK_CHANNEL : smoke-tests
+          SLACK_COLOR : ${{ job.status }}
+          SLACK_ICON : https://avatars.githubusercontent.com/u/67857107?s=40&v=4
+          SLACK_MESSAGE : 'Sanity check for @frontegg/react failed'
+          SLACK_TITLE : 'Sanity check for @frontegg/react failed'
+          SLACK_USERNAME : ${{ github.actor }}
+          SLACK_WEBHOOK : ${{ secrets.SLACK_PRODUCTION_TOKEN }}
